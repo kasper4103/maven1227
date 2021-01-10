@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQyery Supplier Table</title>
+<script src="js/jquery3.5.1.min.js"></script>
+</head>
+<body>
+<button>Get Supplier</button>
+<div  id="div1">Supplier Table </div>
+<script type="text/javascript">
+     $(document).ready(function(){
+          $("button").click(function(){
+              $.get("SupplierServlet", function(data){
+                  $("#div1").html(data);
+              });
+          });
+     });
+</script>
+</body>
+</html>

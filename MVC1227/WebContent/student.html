@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Page</title>
+<script src="js/jquery3.5.1.min.js"></script>
+</head>
+<body>
+學號: <input type="text" id="sid" value="S001"><p>
+姓名:<input type="text" id="name" value="Amy"><p>
+年齡:<input type="text" id="age" value="20"><p>
+<button id="add">Add</button>
+<div id="message">Result</div>
+<script type="text/javascript">
+     $(document).ready(function(){
+          $("#add").click(function(){
+              var obj=new Object();
+              obj.sid=$("#sid").val();
+              obj.name=$("#name").val();
+              obj.age=$("#age").val();
+              var jsstr=JSON.stringify(obj);
+              $.post("StudentAddServlet",{"sdata":jsstr},function(data){
+                  $("#message").html(data);
+              });
+          });
+     });
+</script>
+</body>
+</html>
